@@ -1,399 +1,74 @@
-<!DOCTYPE html>
-<!-- saved from url=(0046)https://vmss.mpei.ru/blockchain/Fedosenko.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>Благотворительный фонд</title>
-
-	<script src="./index_xio_files/web3.min.js.download"></script>
-	<script>
-		
-		window.web3.currentProvider.enable();
-		console.log(window.web3.currentProvider.enable());
-		if (typeof web3 !== 'undefined') {
-			web3 = new Web3(web3.currentProvider);
-			console.log('Yes web3 provider detected');
-		} else {
-			console.log('No web3 provider detected');
-			web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-		};
-
-		web3.eth.getAccounts().then(function(result){
-			web3.eth.defaultAccount = result[0];
-			console.log(web3.eth.defaultAccount);
-		});
-		
-		var abi = [
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address payable[]",
-				"name": "to",
-				"type": "address[]"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Sent",
-		"type": "event"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "AddMoney",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "GoodMen",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "HowManyGoodMen",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "HowMuchMoneyDoWeHave",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "Id",
-				"type": "uint256"
-			}
-		],
-		"name": "WhoIsGoodMan",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "Id",
-				"type": "uint256"
-			}
-		],
-		"name": "WhoIsIndigent",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "gmens",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "Addr2",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "Money2",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "indigentAccs",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "indigents",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "Desease",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "Name",
-				"type": "string"
-			},
-			{
-				"internalType": "address payable",
-				"name": "Addr",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "Perc",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_desease",
-				"type": "string"
-			}
-		],
-		"name": "register",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-];
-		
-		var Charity = new web3.eth.Contract(abi,"0x5B5B842d1189D74742d2DBF4BaE6e6A45e2D89e6");
-		
-		function addMoney1() {
-			var mon = document.getElementById("Money").value
-			Charity.methods.AddMoney().send({from: web3.eth.defaultAccount, value: web3.utils.toWei(mon,"ether")},function(error, result)
-				{
-					console.log("Money to send:",mon);
-				}
-			); 
-		};
-		
-		function Registr() {
-			var name1 = document.getElementById("Name").value;
-			var desease = document.getElementById("Desease").value;
-			Charity.methods.register(name1,desease).send({from: web3.eth.defaultAccount},function(error, result)
-			{
-				console.log("Registered");
-			}
-			); //функция без параметров
-		};
-		
-		function Check3() {
-			var id1 = document.getElementById("ID1").value;
-			Charity.methods.WhoIsIndigent(id1).call({from: web3.eth.defaultAccount},function(error, result)
-			{
-				console.log("Indigent man",result);
-				document.getElementById("myTextOutPut3").value = "Имя: " + result[0] + "\n" + "Заболевание: " + result[1] + "\n" + result[2];
-			}
-			); //функция без параметров
-		};
-		
-		function Check4() {
-			var id2 = document.getElementById("ID2").value;
-			Charity.methods.WhoIsGoodMan(id2).call({from: web3.eth.defaultAccount},function(error, result)
-			{
-				console.log("Donator",result);
-				document.getElementById("myTextOutPut4").value = "Имя: " + result[0] + "\n" + result[1];
-			}
-			); //функция без параметров
-		};
-		
-		function Check2() {
-			Charity.methods.HowMuchMoneyDoWeHave().call({from: web3.eth.defaultAccount},function(error, result)
-			{
-				console.log("Donation money",result);
-				document.getElementById("myTextOutPut2").value = result/1000000000000000000;
-			}
-			); //функция без параметров
-		};
-		
-		function Check1() {
-			Charity.methods.HowManyGoodMen().call({from: web3.eth.defaultAccount},function(error, result)
-			{
-				console.log("How Many Good Men",result);
-				document.getElementById("myTextOutPut1").value = result;
-			}
-			); //функция без параметров
-		};
-		
-		var event = Charity.events.Sent(function(error, result) {
-   			if (!error)console.log(result);
-		});
-				
-	</script>	
-</head>
-
-<body bgcolor="#CCFFCC">
-	<div>
-	<table cellpadding="10">
-		<tbody><tr>
-			<th>	
-				<fieldset align="left"><legend align="center">Регистрация нуждающихся</legend>
-					<br><input id="Name" cols="50" rows="10" maxlength="1000" placeholder="Name"> &nbsp;
-				    <button onclick="Registr()"> Зарегистрироваться </button><br><br>
-				    <input id="Desease" cols="50" rows="10" maxlength="1000" placeholder="Desease"><br><br><br><br><br><br><br><br><br><br>
-				</fieldset>
-			</th>
-				
-	        <th>	
-				<fieldset align="left"><legend align="center">Благотворительный фонд</legend>
-					<p style="font-weight:100">Нажмите кнопку 'Отправить', чтобы пожертвовать деньги <br><br>
-					<input id="Money" cols="50" rows="10" maxlength="1000" placeholder="Money">	&nbsp;
-				    <button onclick="addMoney1()"> Отправить </button>
-				    </p><p style="font-weight:100">Нажмите кнопку 'Вывести', чтобы увидеть количество благотворителей &nbsp;
-					<button onclick="Check1()"> Вывести </button><br><br>
-					<textarea id="myTextOutPut1" disabled="" cols="50" rows="1" maxlength="1000" placeholder="Количество благотворителей"></textarea><br>
-				    </p><p style="font-weight:100">Нажмите кнопку 'Вывести', чтобы увидеть сколько денег было пожертвовано
-					<button onclick="Check2()"> Вывести </button><br><br>
-					<textarea id="myTextOutPut2" disabled="" cols="50" rows="1" maxlength="1000" placeholder="Количество денег"></textarea><br>
-				</p></fieldset>
-			</th>
-</tr>
-
-<tr>
-			<th>
-				<fieldset>
-					<legend>Информация о нуждающихся</legend>
-					<p style="font-weight:100">Введите ID нуждающегося, чтобы узнать его имя, адрес и болезнь <br>
-					<br><input id="ID1" cols="50" rows="10" maxlength="1000" placeholder="ID"> &nbsp;
-					<button onclick="Check3()"> Узнать </button><br><br>
-				    <textarea id="myTextOutPut3" disabled="" cols="70" rows="3" maxlength="1000" placeholder="Нажмите кнопку &#39;Узнать&#39;, чтобы увидеть информацию о нуждающемся."></textarea><br>
-				</p></fieldset>
-			</th>
-	        
-	        <th>
-				<fieldset>
-					<legend>Информация о благотворителях</legend>
-					<p style="font-weight:100">Введите ID благотворителя, чтобы узнать его адрес и сумму его пожертвований <br>
-					<br><input id="ID2" cols="50" rows="10" maxlength="1000" placeholder="ID"> &nbsp;
-					<button onclick="Check4()"> Узнать </button><br><br>
-				    <textarea id="myTextOutPut4" disabled="" cols="70" rows="3" maxlength="1000" placeholder="Нажмите кнопку &#39;Узнать&#39;, чтобы увидеть информацию о благотворителе."></textarea><br>
-				</p></fieldset>
-			</th>
-        </tr>
-			
-		
-	</tbody></table>		
-	</div>
-
-
-</body></html>
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<meta charset="utf-8">
+		<title>Благотворительный фонд</title>
+		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.0/dist/web3.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div>
+			<table align="center" cellpadding="10">
+				<tr valign="top">
+					<th>
+						<fieldset id="fieldset1" align="left">
+							<legend align="center">Регистрация нуждающихся</legend>
+							<br>
+							<input id="Name" cols="50" rows="10" maxlength="1000" placeholder="Имя"></input>
+							<br><br>
+							<input id="Desease" cols="50" rows="10" maxlength="1000" placeholder="Заболевание"></input>
+							<br><br>
+							<button onClick="Registr()">Зарегистрировать</button>
+							<!br><!br><!br><!br><!br><!br><!br><!br>
+						</fieldset>
+					</th>
+					<th>
+						<fieldset id="fieldset1" align="left">
+							<legend align="center">Благотворительный фонд</legend>
+							<p style='font-weight:100'><!Нажмите 'Отправить', чтобы пожертвовать деньги>
+							<!br><!br>
+							<input id="Money" cols="50" rows="10" maxlength="1000" placeholder="Введите сумму денег"> &nbsp;
+							<button onClick="addMoney1()">Пожертвовать деньги </button>
+							<p style='font-weight:100'><!Нажмите 'Вывести', чтобы увидеть количество благотворителей &nbsp;>
+							<button onClick="Check1()">Узнать количество благотворителей</button><br><br>
+							<textarea id="myTextOutPut1" disabled cols="50" rows="1" maxlength="1000" placeholder="Окно вывода количества благотворителей"></textarea>
+							<br>
+							<p style='font-weight:100'><!Нажмите 'Вывести', чтобы увидеть сколько денег было пожертвовано>
+							<button onClick="Check2()">Узнать количество пожертвованных денег</button><br><br>
+							<textarea id="myTextOutPut2" disabled cols="50" rows="1" maxlength="1000" placeholder="Окно вывода количества денег"></textarea>
+							<!br>
+						</fieldset>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<fieldset id="fieldset2">
+							<legend>Информация о нуждающихся</legend>
+							<p style='font-weight:100'>Введите ID нуждающегося, чтобы узнать его имя, адрес и болезнь 
+							<br>
+							<br>
+							<input id="ID1" cols="50" rows="10" maxlength="1000" placeholder="ID нуждающегося"></input> &nbsp;
+							<button onClick="Check3()">Узнать информацию о нуждающемся</button>
+							<br><br>
+							<textarea id="myTextOutPut3" disabled cols="70" rows="3" maxlength="1000" placeholder="Окно вывода информации о нуждающемся."></textarea><br>
+						</fieldset>
+					</th>
+					<th>
+						<fieldset id="fieldset2">
+							<legend>Информация о благотворителях</legend>
+							<p style='font-weight:100'>Введите ID благотворителя, чтобы узнать его адрес и сумму его пожертвований 
+							<br>
+							<br>
+							<input id="ID2" cols="50" rows="10" maxlength="1000" placeholder="ID благотворителя"></input> &nbsp;
+							<button onClick="Check4()"> Узнать информацию о благотворителе</button>
+							<br><br>
+							<textarea id="myTextOutPut4" disabled cols="70" rows="3" maxlength="1000" placeholder="Окно вывода информации о благотворителе."></textarea><br>
+						</fieldset>
+					</th>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

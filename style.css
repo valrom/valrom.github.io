@@ -1,0 +1,68 @@
+body {
+	/*background-image: url(https://sun9-9.userapi.com/impg/7JYNFdQWK_RqiapjsXL74N3uzKagvSbiIrvOsQ/p3vSTDkm1M4.jpg?size=1218x2160&quality=96&sign=4861a90b092b0a3a692758b2ed544a8c&type=album);*/
+	/*background-color: #88CCFF;*/
+	background-image: url("pic1.png");
+	background-size: 100%;
+	/*padding: 2em;*/
+	font-family: 'Comic Sans', arial;
+}
+
+button {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	color: #000088;
+	background-color: #AAFF00;
+	/*border: none;*/
+	border-width: 1px;
+	border-color: #000088;
+	border-radius: 6px 6px 6px 6px;
+	height: 25px;
+	transition: 0.2s linear;
+}
+
+button:hover {
+	background-color: #000088;
+	color: #AAFF00;
+	border-color: #AAFF00;
+}
+
+legend {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	color: #000088;
+}
+
+textarea {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	color: #000088;
+}
+
+input {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	width: 480px;
+	color: #000088;
+}
+
+input#ID1 {
+	width: 140px;
+}
+
+input#ID2 {
+	width: 140px;
+}
+
+p {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	color: #000088;
+}
+
+fieldset {
+	border-radius: 8px 8px 8px 8px;
+	border-color: #000088;
+}
+
+fieldset#fieldset1 {
+	height: 260px;
+}
+
+fieldset#fieldset2 {
+	height: 220px;
+}
