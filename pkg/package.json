@@ -1,0 +1,12 @@
+{
+  "name": "rustofarm",
+  "version": "0.1.0",
+  "files": [
+    "rustofarm_bg.wasm",
+    "rustofarm.js",
+    "rustofarm.d.ts"
+  ],
+  "module": "rustofarm.js",
+  "types": "rustofarm.d.ts",
+  "sideEffects": false
+}

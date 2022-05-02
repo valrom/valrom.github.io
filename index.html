@@ -1,74 +1,32 @@
-<!doctype html>
-<html>
-	<head>
-		<link rel="stylesheet" href="style.css" type="text/css"/>
-		<meta charset="utf-8">
-		<title>Благотворительный фонд</title>
-		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.0/dist/web3.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
-		<script src="script.js"></script>
-	</head>
-	<body>
-		<div>
-			<table align="center" cellpadding="10">
-				<tr valign="top">
-					<th>
-						<fieldset id="fieldset1" align="left">
-							<legend align="center">Регистрация нуждающихся</legend>
-							<br>
-							<input id="Name" cols="50" rows="10" maxlength="1000" placeholder="Имя"></input>
-							<br><br>
-							<input id="Desease" cols="50" rows="10" maxlength="1000" placeholder="Заболевание"></input>
-							<br><br>
-							<button onClick="Registr()">Зарегистрировать</button>
-							<!br><!br><!br><!br><!br><!br><!br><!br>
-						</fieldset>
-					</th>
-					<th>
-						<fieldset id="fieldset1" align="left">
-							<legend align="center">Благотворительный фонд</legend>
-							<p style='font-weight:100'><!Нажмите 'Отправить', чтобы пожертвовать деньги>
-							<!br><!br>
-							<input id="Money" cols="50" rows="10" maxlength="1000" placeholder="Введите сумму денег"> &nbsp;
-							<button onClick="addMoney1()">Пожертвовать деньги </button>
-							<p style='font-weight:100'><!Нажмите 'Вывести', чтобы увидеть количество благотворителей &nbsp;>
-							<button onClick="Check1()">Узнать количество благотворителей</button><br><br>
-							<textarea id="myTextOutPut1" disabled cols="50" rows="1" maxlength="1000" placeholder="Окно вывода количества благотворителей"></textarea>
-							<br>
-							<p style='font-weight:100'><!Нажмите 'Вывести', чтобы увидеть сколько денег было пожертвовано>
-							<button onClick="Check2()">Узнать количество пожертвованных денег</button><br><br>
-							<textarea id="myTextOutPut2" disabled cols="50" rows="1" maxlength="1000" placeholder="Окно вывода количества денег"></textarea>
-							<!br>
-						</fieldset>
-					</th>
-				</tr>
-				<tr>
-					<th>
-						<fieldset id="fieldset2">
-							<legend>Информация о нуждающихся</legend>
-							<p style='font-weight:100'>Введите ID нуждающегося, чтобы узнать его имя, адрес и болезнь 
-							<br>
-							<br>
-							<input id="ID1" cols="50" rows="10" maxlength="1000" placeholder="ID нуждающегося"></input> &nbsp;
-							<button onClick="Check3()">Узнать информацию о нуждающемся</button>
-							<br><br>
-							<textarea id="myTextOutPut3" disabled cols="70" rows="3" maxlength="1000" placeholder="Окно вывода информации о нуждающемся."></textarea><br>
-						</fieldset>
-					</th>
-					<th>
-						<fieldset id="fieldset2">
-							<legend>Информация о благотворителях</legend>
-							<p style='font-weight:100'>Введите ID благотворителя, чтобы узнать его адрес и сумму его пожертвований 
-							<br>
-							<br>
-							<input id="ID2" cols="50" rows="10" maxlength="1000" placeholder="ID благотворителя"></input> &nbsp;
-							<button onClick="Check4()"> Узнать информацию о благотворителе</button>
-							<br><br>
-							<textarea id="myTextOutPut4" disabled cols="70" rows="3" maxlength="1000" placeholder="Окно вывода информации о благотворителе."></textarea><br>
-						</fieldset>
-					</th>
-				</tr>
-			</table>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong with WASM</title>
+</head>
+
+<body>
+<script type="module">
+    import init from "./pkg/rustofarm.js";
+    init().then(() => {
+        console.log("WASM Loaded");
+    });
+</script>
+<style>
+    canvas {
+        background-color: black;
+    }
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+</style>
+
+<div id="rustofarm"></div>
+
+</body>
+
 </html>
